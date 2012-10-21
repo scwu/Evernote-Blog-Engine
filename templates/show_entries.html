@@ -1,10 +1,24 @@
 {% extends "layout.html" %}
 {% block body %}
-  <ul class=entries>
+  <div class = container>
     {% for entry in entries %}
-    <li><h2> {{ entry.title }} </h2> <h3>{{ entry.created }} </h3>{{ entry.text|safe }} 
+      <div class = single>
+          <h2>{{ entry.title }}</h2>
+          <h3>{{ entry.created }} </h3>
+          <p class=text>{{ entry.text|safe }} </p>
+      </div>
+    </br></br></br>
     {% else %}
       <li><em>Unbelievable. No entries here so far.</em>
     {% endfor %}
-  </ul>
+</div>
+<div class = "pagination">
+  {% if previous %}
+  <br/>
+  <a href = "/{{ smaller }}">Previous</a>
+  {% endif %}
+  {% if after %}
+  <br/> <a href= "/{{ larger }} ">Next </a>
+  {% endif %}
+</div>
 {% endblock %}
