@@ -55,7 +55,7 @@ def teardown_request(exception):
 @app.route('/', defaults = {'page':1})
 @app.route('/<int:page>')
 def show_entry(page):
-    authToken = 'S=s101:U=a7c333:E=14195104dda:C=13a3d5f21da:P=1cd:A=en-devtoken:H=eed4b1d9c5f0c3a4240da55ee7a8de0f'
+    authToken = ''
     if authToken == "wrong":
         print "Please fill in your developer token"
         print "To get a developer token, visit https://sandbox.evernote.com/api/DeveloperToken.action"
